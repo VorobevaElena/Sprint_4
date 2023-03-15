@@ -8,17 +8,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobject.HomePage;
 
-
 // Класс описывает большинство однообразных действий
 public class Service {
     public HomePage objHomePage;
     private WebDriver driver;
-
-
     public Service(WebDriver driver) {
         this.driver = driver;
     }
-
     // Метод переходит на сайт
     public Service inInputWebsite() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
@@ -37,7 +33,6 @@ public class Service {
         element.click();
         return this;
     }
-
     // Метод делает скрол и клик по выбранному элементу
     public Service click(By elementLokator) {
         WebElement element = driver.findElement(elementLokator);
@@ -45,20 +40,17 @@ public class Service {
         element.click();
         return this;
     }
-
     // Метод производит ожидание появления выбранного элемента
     public Service waitPageElement(By element) {
         new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(element));
         return this;
     }
-
     // Метод заполняет поля данными
     public Service inputText(WebElement element, String text) {
         element.sendKeys(text);
         return this;
     }
-
     // Метод проверки присутсвия элемента
     public boolean isElementPresent(By locatorKey) {
         try {

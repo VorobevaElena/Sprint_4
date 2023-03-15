@@ -21,7 +21,6 @@ public class Profile {
     public Profile profileData(String name, String surname, String address, String phoneNumber, String station) {
         objOrderPage = new OrderPage(driver);
         objService = new Service(driver);
-
         objService.waitPageElement(objOrderPage.getTitleOrder());
         objOrderPage.getName().sendKeys(name);
         objOrderPage.getSurname().sendKeys(surname);
@@ -29,7 +28,6 @@ public class Profile {
         objOrderPage.getPhoneNumber().sendKeys(phoneNumber);
         new Actions(driver).moveToElement(objOrderPage.getStation()).click().sendKeys(station)
                 .sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
-
         return this;
     }
 
@@ -37,13 +35,11 @@ public class Profile {
     public Profile orderrer() {
         objOrderPage = new OrderPage(driver);
         objService = new Service(driver);
-
         objService.waitPageElement(objOrderPage.getTitleRent());
         objOrderPage.getCalendar().click();
         objOrderPage.getDate().click();
         objOrderPage.getRentalPeriod().click();
         objOrderPage.getRentalTimeOneDay().click();
-
         return this;
     }
 }
